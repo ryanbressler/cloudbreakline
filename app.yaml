@@ -1,0 +1,28 @@
+application: cloudbreakline
+version: 6
+runtime: python
+api_version: 1
+
+handlers:
+- url: /js
+  static_dir: js
+- url: /images
+  static_dir: images
+  
+- url: /uploadkey.*
+  script: upload.py
+- url: /upload.*
+  script: upload.py
+  
+- url: /genedata
+  script: geneproxy.py
+  
+- url: /transplantdata.*
+  script: transplantws.py
+  
+  
+- url: /list.*
+  script: list.py
+  
+- url: /.*
+  script: ui.py
